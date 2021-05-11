@@ -45,12 +45,13 @@ fun main() {
 
 // QUESTÃO 3 : val x = questao3 (5)
 //  println(x)
-
+navegarNoArray(mutableListOf("cachorro","gato"))
 }
 
 
 // QUESTÃO 3 : fun questao3( numero: Int): Boolean {
  //return numero % 2 == 0
+
 
 
 
@@ -63,7 +64,8 @@ fun meuNomeCompleto(nome: String , sobrenome: String){
  println ("$nome $sobrenome")
 }
 fun meuNomeCompletoComRetorno(nome: String , sobrenome: String): String {
- return "$nome $sobrenome"
-}
+ return "$nome $sobrenome" }
 
+fun navegarNoArray(x : MutableList<String>){
+ x.forEach {println(it)} }
 
