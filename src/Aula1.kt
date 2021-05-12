@@ -1,3 +1,5 @@
+import kotlin.io.println as println1
+
 fun main() {
 
    val inteiro: Int = 1
@@ -17,10 +19,29 @@ fun main() {
     f f = f      f f = f
      */
 
-  /*meuNome()
+ meuNome()
  meuNomeCompleto("Alessandro" , "Machado")
  val nome = meuNomeCompletoComRetorno("Gabriel" , "Vinicius" )
- println(nome)*/
+ println1(nome)}
+
+
+
+
+fun meuNome() {
+
+}
+
+fun meuNomeCompleto(nome: String , sobrenome: String){
+  println1 ("$nome $sobrenome")
+ }
+ fun meuNomeCompletoComRetorno(nome: String , sobrenome: String): String {
+  return "$nome $sobrenome" }
+
+ fun navegarNoArray(x : MutableList<String>){
+  x.forEach { println1(it) } }
+
+
+
 
 
  // Questão 1 Escrever o codigo que deve analisar tres numeros inteiros e retorna o maior dele
@@ -28,9 +49,10 @@ fun main() {
  //var num2 = 3
 // var num3 = 4
 // when {
- // num1 > num3 -> println("E menor")
- // num2 > num3 -> println("E menor")
- // else -> println("4")
+  //num1 > num3 -> println1("E menor")
+ // num2 > num3 -> println1("E menor")
+ // else -> println1("4")
+ //}
 
 
  //Questao 2 escrever o codigo que deve analisar duas cadeias de texto e caso sejam diferentes retorna
@@ -45,8 +67,8 @@ fun main() {
 
 // QUESTÃO 3 : val x = questao3 (5)
 //  println(x)
-navegarNoArray(mutableListOf("cachorro","gato"))
-}
+//navegarNoArray(mutableListOf("cachorro","gato"))
+//}
 
 
 // QUESTÃO 3 : fun questao3( numero: Int): Boolean {
@@ -56,16 +78,4 @@ navegarNoArray(mutableListOf("cachorro","gato"))
 
 
 
-
-fun meuNome() {
- println("Alessandro Machado")
-}
-fun meuNomeCompleto(nome: String , sobrenome: String){
- println ("$nome $sobrenome")
-}
-fun meuNomeCompletoComRetorno(nome: String , sobrenome: String): String {
- return "$nome $sobrenome" }
-
-fun navegarNoArray(x : MutableList<String>){
- x.forEach {println(it)} }
 

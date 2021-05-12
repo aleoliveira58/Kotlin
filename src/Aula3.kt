@@ -11,27 +11,6 @@ fun main(){
     println(gato.sexo)
 
 }
-class Bichano: Gato(){
-    override var sexo: String = "M"
-    init {
-        raca = "Gato"
-    }
-
-     override fun come() {
-         super.come()
-        println("Como do jeito bichano de ser")
-    }
-
-}
-
- class Cachorro: Animais(
-    sexo = "M"){}
-
-open class Gato: Animais(
-    sexo = "f",
-    cor = "preto"){}
-
-class Leao: Animais(){}
 
 open class Animais(
     open var sexo: String = "0"){
@@ -42,13 +21,31 @@ open class Animais(
 
     //poliformismo
     open fun come(){
-        println("come do jeito defaut")
-    }
-fun minhaRaca(){
-    println("Minha raca e $raca")
-}
+        println("come do jeito defaut") }
+    fun minhaRaca(){
+        println("Minha raca e $raca") } }
 
-}
+
+
+class Bichano: Gato(){
+    override var sexo: String = "M"
+    init { raca = "Gato" }
+    override fun come() {
+        super.come()
+        println("Como do jeito bichano de ser") } }
+
+
+
+ class Cachorro: Animais(
+    sexo = "M"){}
+
+open class Gato: Animais(
+    sexo = "f",
+    cor = "preto"){}
+
+class Leao: Animais(){}
+
+
 
 
 
