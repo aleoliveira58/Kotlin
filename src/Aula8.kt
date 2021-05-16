@@ -9,10 +9,12 @@ fun main () {
     println(gato.sexo) // vai imprimir Feminino
 
 
+
+
 }
 //Bichano -> Gato -> Animal
-class Bichano: Gato(
-){
+class Bichano: Gato(){
+
     override val sexo: String = "Masculino"
 
     override fun come() {
@@ -23,9 +25,7 @@ class Bichano: Gato(
     init{ raca = "Gatinho" } }  // init para mudar oque esta falando na classe pai
 
 
-class Cachorro: Animal(
-    sexo = "Masculino"
-) {}
+class Cachorro: Animal(sexo = "Masculino") {}
 
 open class Gato: Animal(
     sexo = "Feminino",
