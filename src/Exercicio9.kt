@@ -17,8 +17,7 @@ fun main() {
     val turmaTop = Turma("Turma 1 de android", curso)
 
     turmaTop.curso.listaAluno.forEach {
-        println(listOf("O nome do aluno é ${it.nome} ${it.sobrenome} e o registro academico ${it.ra}"))
-    }
+        println(listOf("O nome do aluno é ${it.nome} ${it.sobrenome} e o registro academico ${it.ra}")) }
 
     println(turmaTop.curso.listaAulas)
     //Exercicio1 (part4)
@@ -35,14 +34,9 @@ open class Pessoa(nome: String)
 
 class Aluno(val ra: Int, val nome: String, val sobrenome: String) : Pessoa(nome) {
 
-    fun asssitirAula() {
+    fun asssitirAula() {}
 
-    }
-
-    fun fazerLicaoCasa() {
-
-
-    }
+    fun fazerLicaoCasa() {}
 }
 
 open class Curso(nome: String, val listaAulas: List<Aula>, val listaAluno: List<Aluno>, professor: Professor) {
@@ -52,17 +46,23 @@ open class Curso(nome: String, val listaAulas: List<Aula>, val listaAluno: List<
 
 class Professor(nome: String, rd: Int) : Pessoa(nome) {
 
-    fun darAulas() {
+    fun darAulas() {}
 
-    }
-
-    fun fazerChamada() {
-
-
-    }
+    fun fazerChamada() {}
 }
 
 class Turma(nome: String, val curso: Curso) {}
 // Exercicio 1 (part2)
+
+
+//Exercicio 2 (part1)
+open class Fatura( var lista: List<Item>)
+
+class Item(var numeroFaturado: Int,
+           var discricaoItem: String,
+           var quantidadeComprada: Int,
+           var precoUnitario: Double)
+
+
 
 

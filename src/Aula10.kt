@@ -31,4 +31,20 @@ class Ferrari: Automovel() {
     override fun monitorEstilizado() {
         println("Monitor estilizado")
     }
+
+//Aula 12 Equals
+     // Aqui o equals esta comparando o nome
+    override fun equals(other: Any?): Boolean {
+        val outraFerrari = other as? Ferrari
+        return when(other){
+            is Ferrari -> { this.nome == outraFerrari?.nome}
+            else -> {
+                super.equals(other)} } }
+
+          // Outro exemplo
+
+    //override fun equals(other: Any?): Boolean {
+//    return if (other is Ferrari) { true }
+//    else { false  }}
+
 }
