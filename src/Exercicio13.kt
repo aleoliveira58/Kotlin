@@ -1,64 +1,117 @@
-abstract  class ContaBancaria {
+fun main() {
+    val cesarContaCorrente = ContaCorrente(
+        numeroConta = 1234,
+        taxaDeOperacao = 10.0
+    )
+    val eduContaPoupanca = ContaPoupanca(
+        numeroConta = 4321,
+        limite = 10.0
+    )
+    cesarContaCorrente.depositar(100.0)
+    eduContaPoupanca.depositar(100.0)
+    cesarContaCorrente.sacar(50.0)
+    eduContaPoupanca.sacar(30.0)
 
-    abstract var numeroConta: Int
+    val relatorio = Relatorio()
 
-    abstract var saldo: Double
+    relatorio.gerarRelatorio(cesarContaCorrente)
+    relatorio.gerarRelatorio(eduContaPoupanca)
 
-    abstract fun sacar(valor: Double)
+    cesarContaCorrente.sacar(20.0)
+    eduContaPoupanca.sacar(75.0)
 
-    abstract fun depositar(valor: Double)
+    relatorio.gerarRelatorio(cesarContaCorrente)
+    relatorio.gerarRelatorio(eduContaPoupanca)
 
+    eduContaPoupanca.sacar(5.0)
+
+    relatorio.gerarRelatorio(cesarContaCorrente)
+    relatorio.gerarRelatorio(eduContaPoupanca)
+
+    eduContaPoupanca.sacar(1.0)
+
+    cesarContaCorrente.depositar(100.0)
+    eduContaPoupanca.depositar(100.0)
+
+    eduContaPoupanca.transferir(10.0, cesarContaCorrente)
+
+    relatorio.gerarRelatorio(cesarContaCorrente)
+    relatorio.gerarRelatorio(eduContaPoupanca)
 }
 
-class conCorrente(override var numeroConta: Int,
-                  override var saldo: Double,
-                  var taxaDeOperacao: Double): ContaBancaria() , Imprimivel{
+abstract class ContaBancaria {
 
+    abstract val numeroConta: Int
 
-    override fun sacar(valor: Double) {
-        if (valor > (saldo - taxaDeOperacao)){
-            println("Saldo insuficiente")
-        } else { saldo -= valor + taxaDeOperacao
-            println("Saque feito com sucesso") }
+    abstract val saldo: Double
+
+    abstract fun sacar(value: Double)
+
+    abstract fun depositar(value: Double)
+
+    fun transferir(value: Double, contaBancaria: ContaBancaria) {
+        sacar(value)
+        contaBancaria.depositar(value)
     }
-
-
-    override fun depositar( valor: Double) {
-        saldo += valor - taxaDeOperacao
-        println("Deposito realizado com sucesso") }
-
-    override fun mostrarDados() {
-        println("O numero da conta é $numeroConta , o meu saldo é $saldo é a minha taxa de operação é $taxaDeOperacao")
-    }
-
-
 }
 
-class contPoupanca(override var numeroConta: Int,
-                   override var saldo: Double = 0.0 ,
-                   var limite: Double): ContaBancaria(), Imprimivel{
+class ContaCorrente(
+    override var numeroConta: Int,
+    override var saldo: Double = 0.0,
+    val taxaDeOperacao: Double
+) : ContaBancaria(), Imprimivel {
 
-
-    override fun sacar(valor: Double) {
-        val saldoTotal = saldo + limite
-        if (valor > saldoTotal) {
+    override fun sacar(value: Double) {
+        if (value > (saldo - taxaDeOperacao)) {
             println("Saldo insuficiente")
         } else {
-            saldo -= valor
-            println("Saque executado com sucesso") }
+            saldo -= value + taxaDeOperacao
+            println("Saque executado com sucesso")
+        }
     }
 
-
-    override fun depositar(valor: Double) {
-        saldo += valor
-        println("Depósito realizado com sucesso") }
+    override fun depositar(value: Double) {
+        saldo += value - taxaDeOperacao
+        println("Depósito realizado com sucesso")
+    }
 
     override fun mostrarDados() {
-        println("O numero da conta é $numeroConta , o meu saldo é $saldo e o meu limite é $limite e o saldo" +
-                "total é ${saldo + limite}")
+        println(
+            "O número da conta é $numeroConta," +
+                    " o meu saldo é $saldo e a minha" +
+                    " taxa de operação é $taxaDeOperacao"
+        )
+    }
+}
+
+class ContaPoupanca(
+    override val numeroConta: Int,
+    override var saldo: Double = 0.0,
+    val limite: Double
+) : ContaBancaria(), Imprimivel {
+
+    override fun sacar(value: Double) {
+        val saldoTotal = saldo + limite
+        if (value > saldoTotal) {
+            println("Saldo insuficiente")
+        } else {
+            saldo -= value
+            println("Saque executado com sucesso")
+        }
     }
 
+    override fun depositar(value: Double) {
+        saldo += value
+        println("Depósito realizado com sucesso")
+    }
 
+    override fun mostrarDados() {
+        println(
+            "O número da conta é $numeroConta," +
+                    " o meu saldo é $saldo e o meu" +
+                    " limite é $limite e o saldo total é ${saldo + limite}"
+        )
+    }
 }
 
 interface Imprimivel {
@@ -72,10 +125,6 @@ class Relatorio {
         imprimivel.mostrarDados()
     }
 }
-
-
-
-
 
 
 
