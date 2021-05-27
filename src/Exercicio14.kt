@@ -1,10 +1,10 @@
-fun main(){
+fun main() {
 
     var listaDeProduto = mutableListOf<Produto>()
-    var camiseta = Fornecedor("Camiseta" , 40.0)
-    var calca = Fornecedor("Calça" , 50.0)
+    var camiseta = Fornecedor("Camiseta", 40.0)
+    var calca = Fornecedor("Calça", 50.0)
     var blusa = Fornecedor("Blusa", 80.0)
-    var bermuda = Fornecedor("Bermuda" , 30.0)
+    var bermuda = Fornecedor("Bermuda", 30.0)
     listaDeProduto.add(camiseta)
     listaDeProduto.add(calca)
     listaDeProduto.add(blusa)
@@ -18,11 +18,7 @@ fun main(){
     println(listaDeProduto)
 
 
-
-
 }
-
-
 
 
 open class Produto(
