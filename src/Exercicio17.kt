@@ -28,19 +28,39 @@ fun main() {
     }
 
 
+//Exercicio 3
+    try {
+        //println(exercicio2[2])
+    } catch (ex: NullPointerException) {
+        //println(ex.stackTraceToString())
+    } catch (ex: IndexOutOfBoundsException) {
+        //println(ex.stackTraceToString())
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    val calculoMatematico = CalculoMatematico()
+    try {
+        calculoMatematico.divisao(4, 0)
+    } catch (ex: ArithmeticException) {
+        println(ex.message)
+    }
 }
 
+
+
+
+
+
+
+
+//Exercicio 3
+class CalculoMatematico {
+
+    @Throws(ArithmeticException::class)
+    fun divisao(x: Int, y: Int): Int {
+        return if (y == 0) {
+            throw ArithmeticException("Divisão por zero")
+        } else {
+            x / y
+        }
+    }
+}
